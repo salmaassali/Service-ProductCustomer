@@ -1,5 +1,6 @@
 package ma.algo.billingservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import ma.algo.billingservice.models.Customer;
@@ -19,7 +20,8 @@ public class Bill {
     private  Long id;
     private Date billingDate;
     private Long customerId;
-    @OneToMany(mappedBy = "bill")
+    @OneToMany
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<ProductItem> productItems;
     @Transient //dit au jpa ignore cette attribut
     private Customer customer;

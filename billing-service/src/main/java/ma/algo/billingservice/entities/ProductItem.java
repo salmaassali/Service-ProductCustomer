@@ -1,10 +1,9 @@
 package ma.algo.billingservice.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.*;
+import ma.algo.billingservice.models.Product;
 
 @Entity
 @Getter
@@ -20,5 +19,8 @@ public class ProductItem  {
     private int quantity;
     private double price;
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Bill bill;
+    @Transient
+    private Product product;
 }
