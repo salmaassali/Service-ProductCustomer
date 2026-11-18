@@ -37,3 +37,13 @@ build/
 
 ### Mac OS ###
 .DS_Store
+### IntelliJ (tout le dossier) ###
+.idea/
+
+### Spring / Maven ###
+HELP.md
+*.log
+logs/
+
+### Windows ###
+Thumbs.db
