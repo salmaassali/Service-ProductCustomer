@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "customer-service")
 public interface CustomerServiceRestClient {
-    @GetMapping("/customers/{id}")
+    @GetMapping("/api/customers/{id}")
     @CircuitBreaker(name="customer-service", fallbackMethod="getDefeultCustomer")
     Customer findByCustomerById(@PathVariable("id") Long id);
     default Customer getDefeultCustomer(Long id, Exception exception ) {
