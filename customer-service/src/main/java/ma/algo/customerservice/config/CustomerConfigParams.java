@@ -1,4 +1,7 @@
 package ma.algo.customerservice.config;
 
-public class CustomerConfigParams {
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "customer.params")
+public record CustomerConfigParams (int x, int y){
 }
